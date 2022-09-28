@@ -1,41 +1,17 @@
-﻿void IfPalindrom (int digit)
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+
+void IfPalindrom (int digit)
 {
     string line = Convert.ToString(digit);;
-    
-    if (line.Length > 2)
+    bool check = true;
+
+    for (int i =0; i < line.Length / 2; i++)
     {
-        int i = 0;
-        while (i < (line.Length / 2))
-        {
-            if (line [i] == line [(line.Length - 1 - i)])
-            {
-                i ++;
-            }
-            else 
-            {
-                Console.WriteLine("Число не является палиндромом");
-            }
-        }
-        Console.WriteLine("Число является палиндромом");
+        check = line[i] == line[line.Length - 1 - i];
     }
-    else
-    {
-        if (line.Length == 2)
-        {
-            if (line [0] == line [1])
-            {
-                Console.WriteLine("Число является палиндромом");
-            }
-            else
-            {
-                Console.WriteLine("Число не является палиндромом");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Введите число, состоящее из более 1 цифры");
-        }
-    }
+    string txt = check == true ? "yes" : "no";
+    Console.WriteLine (txt);
 }
 
 
@@ -43,6 +19,3 @@ Console.WriteLine("Введите число");
 int digit = Int32.Parse(Console.ReadLine());
 
 IfPalindrom (digit);
-
-
-
